@@ -1,0 +1,189 @@
+body { background-color: #1a0525; color: #fff; font-family: 'Arial', sans-serif; text-align: center; }
+nav { padding: 20px; }
+nav a { color: #ffb6c1; margin: 0 15px; text-decoration: none; font-size: 1.2rem; }
+.container { margin-top: 50px; }
+h1 { color: #ffb6c1; }
+.fade-in {
+    animation: fadeInAnimation 2s ease-in;
+}
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.memories-grid img {
+    transition: transform 0.5s ease;
+}
+
+.memories-grid img:hover {
+    transform: scale(1.1) rotate(2deg);
+    cursor: pointer;
+}
+
+.message-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.6;
+    border: 1px solid #ffb6c1;
+}
+.reasons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.reason-item { background: #3c1a52; padding: 15px; border-radius: 10px; color: #ffb6c1; }
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.reasons-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+.reasons-list li {
+    background: #2a0840;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ffb6c1;
+    color: #fff;
+}
+/* រៀបចំ Container ធំ */
+.gallery-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+/* រចនាប័ទ្មស៊ុមរូបភាព/វីដេអូ */
+.gallery-item {
+    width: 250px;
+    height: 350px;
+    border: 3px solid #ffb6c1; /* ពណ៌ខ្សែគែម */
+    border-radius: 20px;       /* ជ្រុងមូល */
+    overflow: hidden;
+    animation: rotateAnimation 10s linear infinite; /* បញ្ជាចលនា */
+    transition: 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* បង្កើតចលនារង្វិលជុំ (Rotate Animation) */
+@keyframes rotateAnimation {
+    0% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(0px) rotate(0deg); }
+    75% { transform: translateY(10px) rotate(-2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* បន្ថែម Effect ពេលเอา Mouse ដាក់លើ */
+.gallery-item:hover {
+    animation-play-state: paused; /* ឈប់រត់ពេលเอา Mouse ដាក់លើ */
+    transform: scale(1.1);
+}
+/* កំណត់ទំហំសម្រាប់ Container ដែលផ្ទុករូបភាព */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* បែងចែកជាជួរស្អាត */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* កំណត់ទំហំរូបភាពអោយស្មើគ្នា និងស្អាត */
+.memories-grid img {
+    width: 100%;        /* អោយរូបភាពពេញកន្លែងដែលវាស្ថិតនៅ */
+    height: 350px;      /* កំណត់កម្ពស់អោយស្មើគ្នាគ្រប់រូប */
+    object-fit: cover;  /* កាត់រូបភាពអោយស្អាតតាមស៊ុមដោយមិនអោយរូបភាពខូចទ្រង់ទ្រាយ */
+    border-radius: 20px; /* បង្កើតជ្រុងមូល */
+}
+/* សម្រាប់ទូរស័ព្ទដែលមានអេក្រង់តូចជាង 600px */
+@media (max-width: 600px) {
+    .memories-grid {
+        grid-template-columns: 1fr; /* ដាក់រូបភាពមួយជួរមួយ */
+        padding: 10px;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr; /* វីដេអូមួយជួរមួយ */
+    }
+    
+    h1 {
+        font-size: 1.5rem; /* កាត់បន្ថយទំហំអក្សរអោយសមនឹងទូរស័ព្ទ */
+    }
+    
+    nav a {
+        font-size: 0.9rem;
+        margin: 0 5px; /* កាត់បន្ថយចន្លោះ Menu */
+    }
+}
+img, video {
+    max-width: 100%; /* រូបភាពមិនអាចធំជាងអេក្រង់ទូរស័ព្ទបានទេ */
+    height: auto;    /* រក្សាទម្រង់ដើមរបស់រូបភាព */
+    display: block;
+}
+/* Container ធំ */
+.gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* ស៊ុមសម្រាប់គ្រប់យ៉ាង (Video ឬ Image) */
+.gallery-item {
+    width: 280px;
+    height: 400px;
+    border: 3px solid #ffb6c1;
+    border-radius: 30px; /* ជ្រុងមូល */
+    overflow: hidden;
+    position: relative;
+    animation: floating 6s ease-in-out infinite; /* ចលនារត់វិលចុះឡើង */
+    background: #000;
+}
+
+/* កំណត់ទំហំ Video/Image ក្នុងស៊ុម */
+.gallery-item video, .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* កូដចលនាវិលចុះឡើង */
+@keyframes floating {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.message-section {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.1); /* ផ្ទៃខាងក្រោយថ្លាៗ */
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 5px solid #ffb6c1; /* សញ្ញាសម្គាល់នៅគែម */
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.6;
+}

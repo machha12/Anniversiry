@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="musicToggle"
+        style="position:fixed; bottom:20px; right:20px; z-index:1000; padding:10px; border-radius:50%; border:none; cursor:pointer;">
+        🎵
+    </button>
+
+    <script>
+        const audio = new Audio('snaptik_7644545479585418517_v3.mp3');
+        const btn = document.getElementById('musicToggle');
+
+        // ព្យាយាម Auto play នៅពេលគេហទំព័រផ្ទុកចប់
+        window.onload = () => {
+            audio.play().catch(error => {
+                console.log("Browser រារាំងការលេងដោយស្វ័យប្រវត្តិ, សូមចុចប៊ូតុងដើម្បីលេង!");
+            });
+        };
+
+        // ប៊ូតុងសម្រាប់ Play/Pause
+        btn.onclick = () => {
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "🎵";
+            } else {
+                audio.pause();
+                btn.innerHTML = "🔇";
+            }
+        };
+    </script>
+    <nav><a href="index.html">Home</a><a href="memories.html">Memories</a><a
+            href="gallery.html">Gallery</a><a href="reasons.html">Reasons</a></nav>
+    <div class="container fade-in">
+        <h1>Happy 3rd Anniversary, MeyMey! ❤️</h1>
+        <p>Three years of ups and downs, but we are still stronger than ever.</p>
+        <p>"Forever and Always, Yours ❤️"</p>
+    </div>
+    <div class="message-section fade-in">
+        <h2>A Special Message for You</h2>
+        <div class="message-card">
+            <p>
+                Dear MeyMey,<br><br>
+                Today marks three beautiful years of us. Looking back at our journey, I am overwhelmed with gratitude.
+                Thank you for being my rock, my safe place, and my greatest adventure. I know I am not perfect,
+                and I know there were times I made mistakes, but I want you to know that every single day,
+                I am trying my best to be the man you deserve.<br><br>
+                These 3 years haven't just been about time; they have been about growing together,
+                learning how to love each other through the good and the bad. You’ve seen me at my worst
+                and still chose to stay. That means more to me than words can say. <br><br>
+                I promise to keep loving you, to keep listening to you, and to keep fighting for us.
+                I can’t wait for all the years to come, to build more memories, and to see you achieve
+                all your dreams. I am your biggest fan, always.<br><br>
+                I love you more than words can express. Happy 3rd Anniversary!
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
